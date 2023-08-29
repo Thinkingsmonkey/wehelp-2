@@ -16,10 +16,7 @@ db_pool = mysql.connector.pooling.MySQLConnectionPool(**dbconfig)
 with open("db.json", mode="r", encoding="utf-8") as file:
     data = json.load(file)
 
-# 所有的 column 名稱
-attr = data["result"]["results"][0]
-keys = ", ".join(attr.keys())
-# print(keys)
+
 
 
 # 將所有的 value 放進 list 中
@@ -72,8 +69,13 @@ for result in results:
     
 
 
+# 個別功能
+
+# 所有的 column 名稱
+# attr = data["result"]["results"][0]
+# keys = ", ".join(attr.keys())
+# print(keys)
     
-# print(data_tuples[1][0])
 # # 所有的資料
 # values = attr.values()
 # lis = ""
@@ -92,8 +94,6 @@ for result in results:
 # # 去除每个分割部分的首尾空格，并放入一个元组中
 # # data_tuple = tuple(part.strip().strip('"') for part in data_list)
 # data_tuple = (int(data_list[0]),) + tuple(part.strip().strip('"') for part in data_list[1:-2]) + (int(data_list[-3]), data_list[-1].strip())
-
-
 
 
 # x = "%s"

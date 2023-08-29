@@ -1,7 +1,11 @@
 from flask_restx import fields
 from ..extensions import api
+error_model= api.model("ErrorModel", {
+  "Error": fields.Boolean,
+  "message": fields.String
+})
 
-acttractions_input_model = api.model("AttractionsInput", {
+attractions_input_model = api.model("AttractionsInput", {
   "page": fields.Integer(required=True),
   "keyword": fields.String
 })

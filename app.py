@@ -1,7 +1,8 @@
 from flask import *
 from server.extensions import db, api
 from flask_cors import CORS
-from server.controllers.attraction_space import acttraction_space
+from server.controllers.attraction_space import attraction_space
+
 app=Flask(__name__)
 
 app.config["JSON_AS_ASCII"]=False
@@ -11,6 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 api.init_app(app)
 CORS(app)
+
 
 # Pages
 @app.route("/")
@@ -27,5 +29,5 @@ def thankyou():
 	return render_template("thankyou.html")
 
 
-api.add_namespace(acttraction_space)
+api.add_namespace(attraction_space)
 app.run(host="0.0.0.0", port=3000, debug=True)
